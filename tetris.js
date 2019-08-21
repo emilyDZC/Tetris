@@ -193,7 +193,7 @@ function rotate(matrix, dir) {
 }
 
 let dropCounter = 0;
-let dropInterval = 1000;
+let dropInterval = 500;
 
 let lastTime = 0;
 function update(time = 0) {
@@ -240,8 +240,6 @@ document.addEventListener('keydown', event => {
         playerDrop();
     } else if (event.code === "ShiftRight"){
         playerRotate(-1);
-    } else if (event.code === "KeyW"){
-        playerRotate(1);
     }
 });
 
