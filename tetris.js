@@ -209,6 +209,15 @@ function update(time = 0) {
 
 function updateScore(){
     document.getElementById("score").innerText = player.score;
+    if (player.score >= 100) {
+        dropInterval = 300;
+    }
+    if (player.score >= 200) {
+        dropInterval = 200;
+    }
+    if (player.score >=300) {
+        dropInterval = 100;
+    }
 }
 
 const arena = createMatrix(12, 20);
