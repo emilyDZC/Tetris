@@ -155,6 +155,7 @@ function playerReset() {
         arena.forEach(row => row.fill(0));
         player.score = 0;
         updateScore();
+        dropInterval = 500;
     }
 }
 
