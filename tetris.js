@@ -153,6 +153,7 @@ function playerReset() {
                    (player.matrix[0].length / 2 | 0);
     if (collide(arena, player)) {
         arena.forEach(row => row.fill(0));
+        if (player.score > topScore) topScore = player.score;
         player.score = 0;
         updateScore();
         dropInterval = 500;
@@ -195,6 +196,7 @@ function rotate(matrix, dir) {
 
 let dropCounter = 0;
 let dropInterval = 500;
+let topScore = 0;
 
 let lastTime = 0;
 function update(time = 0) {
@@ -209,7 +211,7 @@ function update(time = 0) {
 }
 
 function updateScore(){
-    document.getElementById("score").innerText = player.score;
+    document.getElementById("score").innerText = `Score: ${player.score}  ||   Top score: ${topScore}`;
     if (player.score >= 100) {
         dropInterval = 300;
     }
@@ -248,7 +250,7 @@ document.addEventListener('keydown', event => {
         playerMove(1);
     } else if (event.code ==="ArrowDown") {
         playerDrop();
-    } else if (event.code === "ShiftRight"){
+    } else if (event.code === "ArrowUp"){
         playerRotate(-1);
     }
 });
